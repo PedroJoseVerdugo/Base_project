@@ -21,6 +21,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\MatriculaController;
+
             
 
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
@@ -72,3 +75,35 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('user-profile');
 });
 Route::resource('alumnos', App\Http\Controllers\AlumnoController::class);
+
+//ruta dela tabla asignaturas
+
+Route::resource('asignaturas', App\Http\Controllers\AsignaturaController::class);
+
+Route::get('/asignaturas', [AsignaturaController::class, 'index'])->name('asignaturas.index');
+Route::get('/asignaturas/create', [AsignaturaController::class, 'create'])->name('asignaturas.create');
+Route::post('/asignaturas', [AsignaturaController::class, 'store'])->name('asignaturas.store');
+
+
+//ruta d ela tabla matriculas
+Route::resource('matriculas', App\Http\Controllers\MatriculaController::class);
+// Rutas para mostrar la lista y el formulario de creación
+Route::get('matriculas', [MatriculaController::class, 'index'])->name('matriculas.index');
+Route::get('matriculas/create', [MatriculaController::class, 'create'])->name('matriculas.create');
+// Rutas para procesar la creación y visualización de matrículas
+Route::post('matriculas', [MatriculaController::class, 'store'])->name('matriculas.store');
+
+Route::middleware(['auth'])->group(function () {
+Route::get('matriculas/{matricula}', [MatriculaController::class, 'show'])->name('matriculas.show');
+
+// Rutas para la edición y actualización de matrículas
+Route::get('matriculas/{matricula}/edit', [MatriculaController::class, 'edit'])->name('matriculas.edit');
+Route::put('matriculas/{matricula}', [MatriculaController::class, 'update'])->name('matriculas.update');
+
+// Ruta para eliminar matrículas
+Route::delete('matriculas/{matricula}', [MatriculaController::class, 'destroy'])->name('matriculas.destroy'); 
+Route::get('/asignaturas/{asignatura}', 'AsignaturaController@show')->name('asignaturas.show');
+
+
+Route::post('/matriculas', 'MatriculaController@store')->name('matriculas.store');
+});

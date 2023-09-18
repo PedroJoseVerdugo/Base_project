@@ -47,6 +47,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'tables' ? ' active bg-gradient-primary' : '' }} "
                     href="{{ route('tables') }}">
@@ -56,6 +57,30 @@
                     <span class="nav-link-text ms-1">Tables</span>
                 </a>
             </li>
+        <!--nuevo campo para tabla2-->
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'tables' ? ' active bg-gradient-primary' : '' }}" href="https://forocoches.com/">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Tables 2</span>
+                </a>
+            </li>
+        <!--nuevo campo para asignaturas-->
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('asignaturas.index') }}">
+                    <i class="fas fa-book"></i>
+                    <span>Asignaturas</span>
+                </a>
+             </li>
+
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('matriculas.index') }}">
+                    <i class="fas fa-book"></i>
+                    <span>Matriculas</span>
+                </a>
+            </li>  
+
             <li class="nav-item">
                 <a class="nav-link text-red {{ $activePage == 'user-profile' ? 'active bg-gradient-primary' : '' }} "
                     href="{{ route('welcome') }}">
@@ -116,9 +141,9 @@
             <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('static-sign-in') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
+                        <i class="material-icons opacity-10">iniciar</i>
                     </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
+                    <span class="nav-link-text ms-1">iniciar sesion</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -126,7 +151,7 @@
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">assignment</i>
                     </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
+                    <span class="nav-link-text ms-1">Registrar</span>
                 </a>
             </li>
         </ul>

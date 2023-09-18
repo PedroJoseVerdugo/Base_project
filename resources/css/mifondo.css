@@ -1,0 +1,7 @@
+.mifondo {
+    background-image: url('public/ciervo.webp'); /* Reemplaza 'ruta-a-tu-imagen' con la ruta real de tu imagen */
+    background-size: cover; /* Escala la imagen para cubrir todo el elemento */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    /* Puedes agregar más propiedades de estilo según tus necesidades, como el color de texto, márgenes, etc. */
+  }
+  
